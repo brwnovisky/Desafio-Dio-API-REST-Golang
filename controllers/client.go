@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"Desafio-Dio-API-REST-Golang/context"
+	"Desafio-Dio-API-REST-Golang/contexts"
 	"Desafio-Dio-API-REST-Golang/entities"
 	"Desafio-Dio-API-REST-Golang/models"
 	"Desafio-Dio-API-REST-Golang/services"
@@ -10,10 +10,10 @@ import (
 )
 
 type Client struct {
-	context *context.ClientDbContext
+	context *contexts.ClientDbContext
 }
 
-func NewClient(context *context.ClientDbContext) *Client {
+func NewClient(context *contexts.ClientDbContext) *Client {
 	return &Client{context: context}
 }
 

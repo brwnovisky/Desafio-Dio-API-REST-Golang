@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Desafio-Dio-API-REST-Golang/context"
+	"Desafio-Dio-API-REST-Golang/contexts"
 	"Desafio-Dio-API-REST-Golang/controllers"
 	"github.com/gorilla/mux"
 	"log"
@@ -10,7 +10,7 @@ import (
 
 func main() {
 
-	context := context.NewDatabaseContext("clients")
+	context := contexts.NewDatabaseContext("clients")
 
 	homeController :=
 		controllers.RequestHandler{IController: controllers.NewHome()}
