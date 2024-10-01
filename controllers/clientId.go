@@ -1,10 +1,10 @@
 package controllers
 
 import (
-	"Desafio-Dio-API-REST-Golang/Context"
-	"Desafio-Dio-API-REST-Golang/Models"
+	"Desafio-Dio-API-REST-Golang/context"
 	"Desafio-Dio-API-REST-Golang/entities"
 	"Desafio-Dio-API-REST-Golang/helpers"
+	"Desafio-Dio-API-REST-Golang/models"
 	"Desafio-Dio-API-REST-Golang/services"
 	"encoding/json"
 	"github.com/gorilla/mux"
@@ -13,10 +13,10 @@ import (
 )
 
 type ClientId struct {
-	context *Context.ClientDbContext
+	context *context.ClientDbContext
 }
 
-func NewClientId(context *Context.ClientDbContext) *ClientId {
+func NewClientId(context *context.ClientDbContext) *ClientId {
 	return &ClientId{context: context}
 }
 
@@ -62,7 +62,7 @@ func (h ClientId) Put(controllerData *entities.ControllerData) {
 		panic(err)
 	}
 
-	var target *Models.Person = nil
+	var target *models.Person = nil
 
 	for i := 0; i < len(h.context.Clients); i++ {
 		if (h.context.Clients)[i].Id == id {
@@ -76,7 +76,7 @@ func (h ClientId) Put(controllerData *entities.ControllerData) {
 			append((*controllerData).ResponseBody.Messages, "Client not found")
 	}
 
-	var updatedClient Models.Person
+	var updatedClient models.Person
 
 	err = json.NewDecoder((*(*controllerData).Request).Body).Decode(&updatedClient)
 
@@ -106,7 +106,7 @@ func (h ClientId) Delete(controllerData *entities.ControllerData) {
 		panic(err)
 	}
 
-	var target *Models.Person = nil
+	var target *models.Person = nil
 
 	for _, person := range h.context.Clients {
 		if person.Id == id {

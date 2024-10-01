@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	"Desafio-Dio-API-REST-Golang/Models"
 	"Desafio-Dio-API-REST-Golang/entities"
 	"Desafio-Dio-API-REST-Golang/interfaces"
+	"Desafio-Dio-API-REST-Golang/models"
 	"encoding/json"
 	"net/http"
 )
@@ -18,7 +18,7 @@ func (rH *RequestHandler) RequestHandler(writer http.ResponseWriter, request *ht
 		Writer:  &writer,
 		Request: request,
 		ResponseBody: entities.ClientResponseBody{
-			Data:     make([]Models.Person, 0),
+			Data:     make([]models.Person, 0),
 			Messages: make([]string, 0),
 		},
 	}

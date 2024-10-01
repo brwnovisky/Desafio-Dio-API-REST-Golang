@@ -1,19 +1,19 @@
 package controllers
 
 import (
-	"Desafio-Dio-API-REST-Golang/Context"
-	"Desafio-Dio-API-REST-Golang/Models"
+	"Desafio-Dio-API-REST-Golang/context"
 	"Desafio-Dio-API-REST-Golang/entities"
+	"Desafio-Dio-API-REST-Golang/models"
 	"Desafio-Dio-API-REST-Golang/services"
 	"encoding/json"
 	"net/http"
 )
 
 type Client struct {
-	context *Context.ClientDbContext
+	context *context.ClientDbContext
 }
 
-func NewClient(context *Context.ClientDbContext) *Client {
+func NewClient(context *context.ClientDbContext) *Client {
 	return &Client{context: context}
 }
 
@@ -26,7 +26,7 @@ func (h Client) Get(controllerData *entities.ControllerData) {
 }
 
 func (h Client) Post(controllerData *entities.ControllerData) {
-	var newClient Models.Person
+	var newClient models.Person
 
 	err := json.NewDecoder((*(*controllerData).Request).Body).Decode(&newClient)
 
